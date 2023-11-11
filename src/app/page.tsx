@@ -1,6 +1,7 @@
 import Community from "@/components/home/Community";
 import Features from "@/components/home/Features";
 import Hero from "@/components/home/Hero";
+import ParticlesBackground from "@/components/home/ParticlesBackground";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Features />
       <Community />
+      <ParticlesBackground />
     </section>
   );
 }
