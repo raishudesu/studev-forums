@@ -30,11 +30,12 @@ const Sidebar = () => {
         <SheetHeader>
           <SheetTitle className="flex gap-1">Studev Forums </SheetTitle>
         </SheetHeader>
+
         <Separator />
         <div className="w-full flex flex-col gap-3">
+          <SearchBtn />
           <NavMenu />
           <Separator />
-          <SearchBtn />
           <AuthBtns />
         </div>
         <ModeToggle />

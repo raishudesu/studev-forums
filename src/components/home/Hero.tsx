@@ -5,7 +5,7 @@ export const headingGradient =
 
 const Hero = () => {
   return (
-    <div className="pt-20 w-full max-w-screen-xl grid justify-items-center gap-6">
+    <div className="pt-10 md:pt-20 w-full max-w-screen-xl grid justify-items-center gap-6">
       <div className="grid gap-6 text-center">
         <h1
           className={`scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl ${headingGradient}`}

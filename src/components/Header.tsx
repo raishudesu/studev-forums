@@ -27,7 +27,6 @@ const Header = () => {
             <NavMenu />
           </div>
         </div>
-
         <div className="hidden md:flex gap-3 items-center">
           <SearchBtn />
           <AuthBtns />
