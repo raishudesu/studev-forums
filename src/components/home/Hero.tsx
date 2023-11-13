@@ -8,7 +8,7 @@ const Hero = () => {
     <div className="pt-20 w-full max-w-screen-xl grid justify-items-center gap-6">
       <div className="grid gap-6 text-center">
         <h1
-          className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-6xl ${headingGradient}`}
+          className={`scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl ${headingGradient}`}
         >
           Ask, Collaborate and Learn.
         </h1>

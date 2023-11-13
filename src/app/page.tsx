@@ -1,3 +1,4 @@
+import ParticlesBackground from "@/components/ParticlesBackground";
 import Community from "@/components/home/Community";
 import Features from "@/components/home/Features";
 import Hero from "@/components/home/Hero";
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Features />
       <Community />
+      <ParticlesBackground />
     </section>
   );
 }
