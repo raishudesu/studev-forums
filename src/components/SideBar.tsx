@@ -11,6 +11,9 @@ import {
 import { Atom, Menu } from "lucide-react";
 import { ModeToggle } from "./ModeToggle";
 import NavMenu from "./NavMenu";
+import AuthBtns from "./AuthBtns";
+import SearchBtn from "./SearchBtn";
+import { Separator } from "./ui/separator";
 
 const Sidebar = () => {
   return (
@@ -22,13 +25,17 @@ const Sidebar = () => {
       </SheetTrigger>
       <SheetContent
         onCloseAutoFocus={(event) => event.preventDefault()}
-        className="overflow-y-auto flex flex-col items-center"
+        className="overflow-y-auto flex flex-col items-start"
       >
         <SheetHeader>
           <SheetTitle className="flex gap-1">Studev Forums </SheetTitle>
         </SheetHeader>
-        <div>
+        <Separator />
+        <div className="w-full flex flex-col gap-3">
           <NavMenu />
+          <Separator />
+          <SearchBtn />
+          <AuthBtns />
         </div>
         <ModeToggle />
       </SheetContent>

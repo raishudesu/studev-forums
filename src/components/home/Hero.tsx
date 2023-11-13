@@ -10,7 +10,7 @@ const Hero = () => {
         <h1
           className={`scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl ${headingGradient}`}
         >
-          Ask, Collaborate and Learn.
+          Ask. Collaborate. Learn.
         </h1>
         <p className="leading-7">
           Enhance your learning development by collaborating with other aspiring
@@ -18,7 +18,7 @@ const Hero = () => {
         </p>
         <div className="place-self-center flex gap-3">
           <Button>Get started</Button>
-          <Button variant={"outline"}>Forums</Button>
+          <Button variant={"secondary"}>Forums</Button>
         </div>
       </div>
     </div>

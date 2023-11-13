@@ -14,7 +14,7 @@ import Link from "next/link";
 const NavMenu = () => {
   return (
     <NavigationMenu>
-      <NavigationMenuList className="flex flex-col md:flex-row">
+      <ul className="flex flex-col items-start md:flex-row">
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -36,7 +36,7 @@ const NavMenu = () => {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-      </NavigationMenuList>
+      </ul>
     </NavigationMenu>
   );
 };

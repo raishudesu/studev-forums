@@ -9,7 +9,7 @@ const Features = () => {
         <h2
           className={`scroll-m-20 text-3xl font-bold tracking-tight transition-colors first:mt-0 ${headingGradient}`}
         >
-          What&apos;s in stu/dev?
+          What&apos;s in studev?
         </h2>
         <p className="leading-7 text-md">
           All the collaborations you need to enhance your development journey.
