@@ -9,7 +9,11 @@ const AuthBtns = () => {
       <Button size={"sm"} onClick={() => router.push("/sign-in")}>
         Sign in
       </Button>
-      <Button size={"sm"} variant={"secondary"}>
+      <Button
+        size={"sm"}
+        variant={"secondary"}
+        onClick={() => router.push("/register")}
+      >
         Register
       </Button>
     </>
