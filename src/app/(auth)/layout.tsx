@@ -1,9 +1,9 @@
 import Image from "next/image";
-import SigninCard from "./components/SigninCard";
 import signin from "@/assets/signin.svg";
+import { ReactNode } from "react";
 import { headingGradient } from "@/components/home/Hero";
 
-const SigninPage = () => {
+const AuthLayout = ({ children }: { children: ReactNode }) => {
   return (
     <section className="w-full flex flex-col justify-center items-center gap-6 mt-10 lg:mt-20 ">
       <div className="max-w-screen-2xl grid lg:grid-cols-2 justify-items-center items-center">
@@ -19,10 +19,10 @@ const SigninPage = () => {
             className="hidden md:block max-w-sm"
           />
         </div>
-        <SigninCard />
+        {children}
       </div>
     </section>
   );
 };
 
-export default SigninPage;
+export default AuthLayout;

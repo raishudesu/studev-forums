@@ -14,12 +14,12 @@ export const userSchema = z.object({
     .min(6, "Password must be at least 6 characters"),
 });
 
-export const signupSchema = z
+export const registerSchema = z
   .object({
-    name: z
-      .string({ required_error: "Name is required" })
-      .min(3, { message: "Name should be atleast 3 characters long" })
-      .max(50, { message: "Name should be less than 50 characters" }),
+    username: z
+      .string({ required_error: "Username is required" })
+      .min(3, { message: "Username should be atleast 3 characters long" })
+      .max(50, { message: "Username should be less than 50 characters" }),
     email: z
       .string({ required_error: "Email is required" })
       .email({ message: "Enter a valid email" }),
@@ -32,7 +32,7 @@ export const signupSchema = z
       .min(6, { message: "Passwords do not match" }),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    path: ["confirmPwd"],
+    path: ["confirmPassword"],
     message: "Passwords do not match",
   });
 

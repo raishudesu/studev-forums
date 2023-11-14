@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useForm } from "react-hook-form";
 import {
   Form,
@@ -8,14 +9,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "../../../../components/ui/form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "../../../../components/ui/input";
+import { Button } from "../../../../components/ui/button";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
-import { signinSchema } from "@/lib/zodSchemas";
+import { signinSchema } from "../../../../lib/zodSchemas";
 
 const SignInForm = () => {
   const form = useForm<z.infer<typeof signinSchema>>({
@@ -78,8 +79,8 @@ const SignInForm = () => {
         or
       </div>
       <p className="text-center text-sm mt-2">
-        If you don&apos;t have an account, please&nbsp;
-        <Link className="text-blue-500 hover:underline" href="/sign-up">
+        Doesn&apos;t have an account? {""}
+        <Link className="text-blue-500 hover:underline" href="/register">
           Register
         </Link>
       </p>

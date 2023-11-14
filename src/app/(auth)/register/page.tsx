@@ -1,16 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import SignInForm from "./SigninForm";
+import RegisterForm from "./components/RegisterForm";
 
 const SigninCard = () => {
   return (
-    <Card className="mt-6 max-w-md">
+    <Card className="mt-6 w-full max-w-md">
       <CardHeader>
         <CardTitle className="mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-          Sign in
+          Register
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <SignInForm />
+        <RegisterForm />
       </CardContent>
     </Card>
   );
