@@ -1,13 +1,20 @@
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt, { compare } from "bcrypt";
+import { compare } from "bcrypt";
 import { userSchema } from "@/lib/zodSchemas";
 import prisma from "@/lib/db";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
+  secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: "jwt",
+  },
+  pages: {
+    signIn: "/signin",
+  },
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -16,53 +23,55 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials.password) return null;
+        try {
+          if (!credentials?.email || !credentials?.password) return null;
 
-        const existingUser = await prisma.user.findUnique({
-          where: { email: credentials?.email },
-        });
+          const existingUser = await prisma.user.findUnique({
+            where: { email: credentials?.email },
+          });
 
-        if (!existingUser) return null;
+          if (!existingUser) return null;
 
-        const passwordMatched = await compare(
-          credentials?.password,
-          existingUser?.password
-        );
+          const passwordMatched = await compare(
+            credentials?.password,
+            existingUser?.password
+          );
 
-        if (!passwordMatched) return null;
+          if (!passwordMatched) return null;
 
-        return {
-          id: `${existingUser.id}`,
-          username: existingUser.username,
-          email: existingUser.email,
-        };
+          return {
+            id: `${existingUser.id}`,
+            username: existingUser.username,
+            email: existingUser.email,
+          };
+        } catch (error) {
+          throw error;
+        }
       },
     }),
   ],
   callbacks: {
     jwt: async ({ user, token }) => {
       if (user) {
-        token.uid = user.id;
-        // token.isAdmin = user.isAdmin;
+        return {
+          ...token,
+          username: user.username,
+          id: user.id,
+        };
       }
       return token;
     },
     session: async ({ session, token }) => {
-      //   if (session?.user) {
-      //     session.user.id = token.uid as string;
-      //     // session.user.isAdmin = token.isAdmin;
-      //   }
-      return session;
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          username: token.username,
+          id: token.id,
+        },
+      };
     },
   },
-  session: {
-    strategy: "jwt",
-  },
-
-  secret: process.env.NEXTAUTH_SECRET,
-  //   pages: {
-  //     signIn: "/signin", // PAGE TO REDIRECT FOR PROTECTED ROUTES
-  //   },
 };
 
 const handler = NextAuth(authOptions);
