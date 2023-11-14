@@ -4,7 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { TFeatureCard } from "@/lib/types";
+import { TFeatureCard } from "@/types/types";
 import { headingGradient } from "./Hero";
 
 const FeatureCard = ({ icon, characteristic, description }: TFeatureCard) => {

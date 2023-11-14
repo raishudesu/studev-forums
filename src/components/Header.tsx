@@ -4,7 +4,6 @@ import NavMenu from "./NavMenu";
 import { GanttChart, Search } from "lucide-react";
 import Sidebar from "./SideBar";
 import AuthBtns from "./AuthBtns";
-import { Button } from "./ui/button";
 import SearchBtn from "./SearchBtn";
 
 const Header = () => {
