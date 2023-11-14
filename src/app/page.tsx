@@ -2,8 +2,8 @@ import ParticlesBackground from "@/components/ParticlesBackground";
 import Community from "@/components/home/Community";
 import Features from "@/components/home/Features";
 import Hero from "@/components/home/Hero";
+import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
